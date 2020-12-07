@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/reset.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <h1><%= title %></h1>
+    <p><%= msg %></p>
+    <form method="POST" action="/users/login">
+        <div>
+            <label for="namae">名前を入力してください。</label>
+            <input type="text" name="name" id="namae">
+        </div>
+        <div>
+            <label for="pasu">パスワードを入力してください。</label>
+            <input type="password" id="pasu" name="pass">
+        </div>
+        <input type="submit" value="ログイン">
+    </form>
+    <div>
+        <h2>新規登録は<a href="/users/add">こちら</a></h2>
+    </div>
+</body>
+</html>

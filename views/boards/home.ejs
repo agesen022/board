@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/reset.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <h1><%= title %></h1>
+    <% if (lists !== null){ %>
+    <p><%= lists[0].User.name %>の投稿を表示しています。</p>
+    <table>
+        <tr>
+            <td>投稿時間</td>
+            <th>投稿者</th>
+            <td>メッセージ</td>
+        </tr>
+        <% for (let i of lists){ %>
+            <% d = new Date(i.createdAt) %>
+            <%- include("data_item2",{
+                val:i,
+                time_month:d.getMonth(),
+                time_date:d.getDate(),
+                time_hours:d.getHours(),
+                time_minutes:d.getMinutes(),
+                time_seconds:d.getSeconds(),     
+            }) %>
+        <% } %>
+    </table>
+    <% } %>
+<!--
+    <%# else{ %>
+        <p><%#= lists[0].User.name %>の投稿はありません。</p>
+    <%# } %>
+-->
+    <div>
+        <a href="/boards/home/<%= lists[0].User.name %>/<%= lists[0].userId %>/<%= nowPage-1 %>">Prev</a>
+    </div>
+    <div>
+        <a href="/boards/home/<%= lists[0].User.name %>/<%= lists[0].userId %>/<%= nowPage+1 %>">Next</a>
+    </div>
+</body>
+</html>

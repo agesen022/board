@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/reset.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <h1><%= title %></h1>
+    <p>ようこそ <%= login.name %></p>
+    <form method="POST" action="/boards/add">
+        <label for="toukou">新規メッセージを入力してください。</label>
+        <input type="text" id="toukou" name="msg">
+        <input type="submit" value="投稿">
+    </form>
+
+    <table>
+        <tr>
+            <td>投稿時間</td>
+            <th>投稿者</th>
+            <td>メッセージ</td>
+        </tr>
+        <% for (let i of lists){ %>
+            <% d = new Date(i.createdAt) %>
+            <%- include("data_item",{
+                val:i,
+                name:login.name,
+                time_month:d.getMonth(),
+                time_date:d.getDate(),
+                time_hours:d.getHours(),
+                time_minutes:d.getMinutes(),
+                time_seconds:d.getSeconds(),     
+            }) %>
+        <% } %>
+    </table>
+    <div>
+        <a href="/boards/<%= nowPage-1 %>">Prev</a>
+    </div>
+    <div>
+        <a href="/boards/<%= nowPage+1 %>">Next</a>
+    </div>
+</body>
+</html>

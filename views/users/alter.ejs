@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/reset.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <h1><%= title %></h1>
+    <p><%= alart %></p>
+    <form method="POST" action="/users/alter">
+        <p> 元のユーザー情報を入力してください。</p>
+        <div>
+            <label for="namae">ユーザー名を入力してください・</label>
+            <input type="text" id="namae" name="name" value="<%= namae %>">
+        </div>
+        <div>
+            <label for="pasu">パスワードを入力してください・</label>
+            <input type="password" id="pasu" name="pass">
+        </div>
+        <input type="submit" value="送信">
+    </form>
+</body>
+</html>

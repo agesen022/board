@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/reset.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <h1><%= title %></h1>
+    <form method="POST" action="/users/alter">
+        <input type="hidden" value="変更" name="alter">
+        <input type="hidden" value="<%= prename %>" name="prename">
+        <input type="hidden" value="<%= prepass %>" name="prepass">
+        <p>新しいユーザー情報を入力してください。</p>
+        <div>
+            <label for="namae">新しいユーザー名を入力してください・</label>
+            <input type="text" id="namae" name="name">
+        </div>
+        <div>
+            <label for="pasu">新しいパスワードを入力してください・</label>
+            <input type="password" id="pasu" name="pass">
+        </div>
+        <input type="submit" value="変更">
+    </form>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/reset.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <h1><%= title %></h1>
+    <form method="POST" action="/users/add">
+        <div>
+            <label for="namae">登録する名前を入力してください。</label>
+            <input type="text" id="namae" name="name">
+        </div>
+        <div>
+            <label for="pasu">登録するパスワードを7字以上20字以下で入力してください。</label>
+            <input type="password" minlength="7" maxlength="20" size="20" id="pasu" name="pass">
+        </div>
+        <input type="submit" value="登録">
+    </form>
+</body>
+</html>
