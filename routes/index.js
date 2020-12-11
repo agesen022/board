@@ -5,6 +5,7 @@ const {GoogleSpreadsheet} = require('google-spreadsheet')
 var express = require('express');
 var router = express.Router();
 
+/*
 async function loadSpreadsheet(){
   const doc = new GoogleSpreadsheet(process.env.SPREADSHEET_ID);
   const credentials = require('../credentials.json');
@@ -15,7 +16,7 @@ async function loadSpreadsheet(){
   const attendanceRows = await attendanceSheet.getRows();
   /*let attendant_row = attendanceRows.find(row=>
     row.attendance === "参加"
-  )*/
+  )*
   let attendant_row = new Array();
   for (let i=0;i<attendanceRows.length;i++){
     if (attendanceRows[i].attendance==="参加"){
@@ -33,6 +34,7 @@ async function loadSpreadsheet(){
 loadSpreadsheet()
 .then(attendant=>console.log(attendant))
 .catch(err=>console.error(err));
+*/
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

@@ -9,8 +9,13 @@
 <body>
     <h1><%= title %></h1>
     <form method="POST" action="/attendance/">
-        <p>spreadsheetのURLを入力してください。<input type="text" name="url"></p>
+        <p>spreadsheetのURLを入力してください。<input type="text" name="url" value='<%= url %>'></p>
         <input type="submit" value="検索">
     </form>
+    <ul style="list-style-type: none;">
+        <% for (let i of attendant){ %>
+        <li><%= i %></li>
+        <% } %>
+    </ul>
 </body>
 </html>
