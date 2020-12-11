@@ -20,7 +20,12 @@ router.get("/",(req,res,next)=>{
     }
     else{
         res.render('attendance/index',{
-            
+            title:"活動出欠",
         })
     }
 })
+router.post("/",(req,res,next)=>{
+    
+})
+
+module.exports = router;

@@ -8,10 +8,10 @@
 </head>
 <body>
     <h1><%= title %></h1>
-    <ul>
-        <li><a href="/users/add">追加</a></li>
-        <li><a href="/users/login">ログイン</a></li>
-        <li><a href="/users/alter">情報変更</a></li>
-    </ul>
+    <form method="POST" action="/board/">
+        <p>spreadsheetIdを入力してください。<input type="text" name="spreadsheetId"></p>
+        <p>worksheetIdを入力してください。<input type="text" name="worksheetId"></p>
+        <input type="submit" value="検索">
+    </form>
 </body>
 </html>
