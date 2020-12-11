@@ -45,7 +45,7 @@ router.post("/",(req,res,next)=>{
         )*/
         let attendant_row = new Array();
         for (let i=0;i<attendanceRows.length;i++){
-          if (attendanceRows[i].attendance==="参加"){
+          if (attendanceRows[i].参加不参加をご入力ください==="参加"){
             attendant_row.push(attendanceRows[i]);
           }
         }
