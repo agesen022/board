@@ -12,7 +12,6 @@ const { route } = require('./boards');
 
 
 router.get("/",(req,res,next)=>{
-/*
   if (req.session.usr == null){
     res.redirect("users/login");
   }
@@ -20,24 +19,42 @@ router.get("/",(req,res,next)=>{
     res.render("users/index")
   }
 })
-*/
+/*
   res.render("users/index",{
     title:"Users/Mokuji",
   })
-})
+})*/
 
 router.get("/login",(req,res,next)=>{
-  res.render("users/login",{
-    title:"Users/login",
+  if (req.session.login != null){
+    db.User.findOne({where:{
+      name:req.session.login.name,
+      pass:req.session.login.pass,
+    }}).then((usr)=>{
+      if (usr == null){
+        res.render("users/login",{
+          title:"Users/Login",
+          msg:"",
+        })
+      }
+      else {
+        req.session.login = usr;
+        res.redirect("/boards");
+      }
+    })
+  }else{
+    res.render("users/login",{
+    title:"Users/Login",
     msg:"",
-  })
+    }
+  )}
 })
 router.post("/login",(req,res,next)=>{
   db.User.findOne({where:{
     name:req.body.name,
     pass:req.body.pass,
   }}).then((usr)=>{
-    if (usr ==null){
+    if (usr == null){
       res.render("users/login",{
         title:"Users/Login",
         msg:"名前かパスワードに誤りがあります。正しく入力しなおしてください。",
@@ -61,7 +78,8 @@ router.post("/add",(req,res,next)=>{
       name:req.body.name,
       pass:req.body.pass,
     }).then((usr)=>{
-      res.redirect("/login")
+      req.session.login = usr;
+      res.redirect("/users/login")
     })
   })
 })
