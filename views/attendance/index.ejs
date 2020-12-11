@@ -5,11 +5,13 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/reset.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="icon" href="/images/favicon.ico"/>
 </head>
 <body>
     <h1><%= title %></h1>
     <form method="POST" action="/attendance/">
         <p>spreadsheetのURLを入力してください。<input type="text" name="url"></p>
+        <p>出席者を出力します。</p>
         <input type="submit" value="検索">
     </form>
 </body>

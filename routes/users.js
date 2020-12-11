@@ -62,7 +62,7 @@ router.post("/login",(req,res,next)=>{
     }
     else {
       req.session.login = usr;
-      res.redirect("/boards");
+      res.redirect("/");
     }
   })
 })
